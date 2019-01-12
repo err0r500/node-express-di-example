@@ -1,4 +1,3 @@
-exports.getConf = (ms) => new Promise((resolve) => {
-    console.log("fetch secrets")
+exports.getSecrets = (ms) => new Promise((resolve) => {
     setTimeout(() => resolve("my secrets fetched async"), ms)
 })

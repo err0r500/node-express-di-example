@@ -1,13 +1,17 @@
-const {startRouter} = require("./router")
+const {getRouter} = require("./router")
 const {getApiCaller} = require("./apiCaller")
-const {getConf} = require("./secrets")
+const {getSecrets} = require("./secrets")
+const {businessLogic} = require("./business")
 
 exports.init = async () => {
-    console.log("init")
-    await startRouter(
-        await getApiCaller(
-            await getConf(100)
-        )(500)
-    )()
+    const app = await getRouter(
+        businessLogic(
+            await getApiCaller(
+                await getSecrets(100)
+            )(500)
+        )
+    )
+
+    app.listen(3000)
 }
 
