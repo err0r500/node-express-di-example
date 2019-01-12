@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "node -e 'require(\"./index\").init()'",
-    "test": "jest"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC"
