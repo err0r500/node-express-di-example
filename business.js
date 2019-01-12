@@ -1,6 +1,9 @@
 exports.businessLogic = async (apiCall) => {
-    console.log("business logic")
-    const firstApiCall = await apiCall()
-    const secondApiCall = await apiCall()
-    return `${firstApiCall} ${secondApiCall}`
+    console.log("business logic");
+    try {
+        const [firstApiCall, secondApiCall] = await Promise.all([apiCall(), apiCall()])
+        return `${firstApiCall} ${secondApiCall}`
+    } catch (e) {
+        return e
+    }
 }
