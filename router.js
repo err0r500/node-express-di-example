@@ -13,11 +13,9 @@ const handleGetRoot = (businessLogicHandler) => async (req, res) => {
     }
 }
 
-exports.getRouter = async (businessLogicHandler) => {
-    const handler = await handleGetRoot(businessLogicHandler)
+exports.router = (businessLogicHandler) => {
+    const handler = handleGetRoot(businessLogicHandler)
 
-    let app = express()
-    app.get('/:age', handler)
-
-    return app
+    return express()
+        .get('/:age', handler)
 }
